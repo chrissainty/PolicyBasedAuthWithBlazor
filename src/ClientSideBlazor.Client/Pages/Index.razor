@@ -1,0 +1,13 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+<p>Welcome to your new app.</p>
+
+<AuthorizeView Policy="@Policies.IsUser">
+    <p>You can only see this if you satisfy the IsUser policy.</p>
+</AuthorizeView>
+
+<AuthorizeView Policy="@Policies.IsAdmin">
+    <p>You can only see this if you satisfy the IsAdmin policy.</p>
+</AuthorizeView>
