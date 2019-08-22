@@ -32,11 +32,8 @@ namespace ClientSideBlazor.Client
             }
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", savedToken);
-            var userInfo = await _httpClient.GetJsonAsync<UserModel>("api/accounts/user");
-            var identity = userInfo.IsAuthenticated ? new ClaimsIdentity(ParseClaimsFromJwt(savedToken), "jwt") : new ClaimsIdentity();
 
-
-            return new AuthenticationState(new ClaimsPrincipal(identity));
+            return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(ParseClaimsFromJwt(savedToken), "jwt")));
         }
 
         public void MarkUserAsAuthenticated(string token)
