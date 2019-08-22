@@ -44,22 +44,5 @@ namespace ClientSideBlazor.Server.Controllers
 
             return Ok(new RegisterResult { Successful = true });
         }
-
-        [HttpGet("user")]
-        public IActionResult GetUser()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                var userModel = new UserModel
-                {
-                    Email = User.Identity.Name,
-                    IsAuthenticated = true
-                };
-
-                return Ok(userModel);
-            }
-
-            return Ok(LoggedOutUser);
-        }
     }
 }
