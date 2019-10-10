@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using ServerSideBlazor.Areas.Identity;
 using ServerSideBlazor.Data;
 using BlazorAuthorization.Shared;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace ServerSideBlazor
 {
