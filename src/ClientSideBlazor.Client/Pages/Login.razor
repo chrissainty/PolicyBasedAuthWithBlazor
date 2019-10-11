@@ -1,6 +1,6 @@
 @page "/login"
-@inject IAuthService AuthService
-@inject NavigationManager UriHelper
+@inject IAuthService authService
+@inject NavigationManager navigationManager
 
 <h1>Login</h1>
 
@@ -43,11 +43,11 @@
     {
         ShowErrors = false;
 
-        var result = await AuthService.Login(loginModel);
+        var result = await authService.Login(loginModel);
 
         if (result.Successful)
         {
-            UriHelper.NavigateTo("/");
+            navigationManager.NavigateTo("/");
         }
         else
         {

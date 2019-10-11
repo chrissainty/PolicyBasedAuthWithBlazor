@@ -3,6 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <LangVersion>7.3</LangVersion>
+    <Configurations>Dbg_CSB;Dbg_SSB</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg_CSB|AnyCPU'">
+    <DefineConstants>ClientSideBlazor;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg_SSB|AnyCPU'">
+    <DefineConstants>ServerSideBlazor;</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClientSideBlazor.Blazor\ClientSideBlazor.Blazor.csproj" />
     <ProjectReference Include="..\ClientSideBlazor.Client\ClientSideBlazor.Client.csproj" />
     <ProjectReference Include="..\BlazorAuthorization.Shared\BlazorAuthorization.Shared.csproj" />
   </ItemGroup>

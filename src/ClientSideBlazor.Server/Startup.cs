@@ -2,6 +2,7 @@ using BlazorAuthorization.Shared;
 using ClientSideBlazor.Server.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -13,23 +14,30 @@ using Microsoft.IdentityModel.Tokens;
 using System.Linq;
 using System.Text;
 
+#if ServerSideBlazor
+using Blazored.LocalStorage;
+using ClientSideBlazor.Client;
+using ClientSideBlazor.Client.Services;
+using System.Net.Http;
+#endif
+
 namespace ClientSideBlazor.Server
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            pConfiguration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration pConfiguration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(pConfiguration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>()
                     .AddRoles<IdentityRole>()
@@ -44,9 +52,9 @@ namespace ClientSideBlazor.Server
                             ValidateAudience = true,
                             ValidateLifetime = true,
                             ValidateIssuerSigningKey = true,
-                            ValidIssuer = Configuration["JwtIssuer"],
-                            ValidAudience = Configuration["JwtAudience"],
-                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSecurityKey"]))
+                            ValidIssuer = pConfiguration["JwtIssuer"],
+                            ValidAudience = pConfiguration["JwtAudience"],
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(pConfiguration["JwtSecurityKey"]))
                         };
                     });
 
@@ -62,11 +70,26 @@ namespace ClientSideBlazor.Server
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
                     new[] { "application/octet-stream" });
             });
+
+#if ServerSideBlazor
+            services.AddBlazoredLocalStorage();
+            services.AddRazorPages();
+            services.AddServerSideBlazor();
+            services.AddScoped<AuthenticationStateProvider, ApiAuthenticationStateProvider>();
+            services.AddScoped<HttpClient>(s =>
+            {
+                var client = new HttpClient();
+                return client;
+            });
+
+            services.AddScoped<IAuthService, AuthService>();
+#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+#if ClientSideBlazor
             app.UseResponseCompression();
 
             if (env.IsDevelopment())
@@ -82,11 +105,42 @@ namespace ClientSideBlazor.Server
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseStaticFiles();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapFallbackToClientSideBlazor<Client.Startup>("index.html");
             });
+#endif
+#if ServerSideBlazor
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/_Host");
+            });
+#endif
         }
     }
 }

@@ -1,10 +1,9 @@
-using ClientSideBlazor.Client.Services;
+using BlazorAuthorization.Shared;
 using Blazored.LocalStorage;
-using Microsoft.AspNetCore.Components;
+using ClientSideBlazor.Client.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using BlazorAuthorization.Shared;
-using Microsoft.AspNetCore.Components.Authorization;
 
 namespace ClientSideBlazor.Client
 {

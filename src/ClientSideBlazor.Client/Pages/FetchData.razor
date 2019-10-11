@@ -1,7 +1,7 @@
 ﻿@page "/fetchdata"
 @attribute [Authorize(Policy = Policies.IsAdmin)]
 @using BlazorAuthorization.Shared
-@inject HttpClient Http
+@inject HttpClient _httpClient
 
 <h1>Weather forecast</h1>
 
@@ -39,8 +39,24 @@ else
 @code {
     WeatherForecast[] forecasts;
 
+    /// <summary>
+    /// Makes an HTTP GET request to the given controller and returns the deserialized response content.
+    /// </summary>
+    public async Task<TResult> GetTypedResultAsync<TResult>(string controller)
+    {
+        try
+        {
+            var json = await _httpClient.GetStringAsync(controller);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TResult>(json);
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetJsonAsync<WeatherForecast[]>("api/SampleData/WeatherForecasts");
+        forecasts = await GetTypedResultAsync<WeatherForecast[]>("api/SampleData/WeatherForecasts");
     }
 }
