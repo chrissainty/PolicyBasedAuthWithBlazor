@@ -1,5 +1,5 @@
 @page "/register"
-@inject IAuthService AuthService
+@inject IAuthService authService
 @inject NavigationManager navigationManager
 
 <h1>Register</h1>
@@ -51,7 +51,7 @@
     {
         ShowErrors = false;
 
-        var result = await AuthService.Register(RegisterModel);
+        var result = await authService.Register(RegisterModel);
 
         if (result.Successful)
         {
