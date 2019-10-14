@@ -14,7 +14,6 @@ namespace BlazorAuthorization.Client.Services
         private readonly AuthenticationStateProvider _authenticationStateProvider;
         private readonly HttpClient _httpClient;
         private readonly ILocalStorageService _localStorage;
-        private readonly NavigationManager _navigationManager;
 
         public AuthService(AuthenticationStateProvider authenticationStateProvider,
                            HttpClient httpClient,
@@ -24,9 +23,6 @@ namespace BlazorAuthorization.Client.Services
             _authenticationStateProvider = authenticationStateProvider;
             _httpClient = httpClient;
             _localStorage = localStorage;
-            _navigationManager = navigationManager;
-
-            _httpClient.BaseAddress = new System.Uri(_navigationManager.BaseUri);
         }
 
         /// <summary>

@@ -1,4 +1,7 @@
-﻿<Router AppAssembly="typeof(App).Assembly">
+﻿@inject HttpClient _httpClient
+@inject NavigationManager _navigationManager;
+
+<Router AppAssembly="typeof(App).Assembly">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)" />
     </Found>
@@ -9,3 +12,13 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+@code
+{
+
+    protected override void OnInitialized()
+    {
+        _httpClient.BaseAddress = new System.Uri(_navigationManager.BaseUri);
+    }
+
+}
