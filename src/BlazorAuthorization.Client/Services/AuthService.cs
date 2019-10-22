@@ -17,8 +17,7 @@ namespace BlazorAuthorization.Client.Services
 
         public AuthService(AuthenticationStateProvider authenticationStateProvider,
                            HttpClient httpClient,
-                           ILocalStorageService localStorage,
-                           NavigationManager navigationManager)
+                           ILocalStorageService localStorage)
         {
             _authenticationStateProvider = authenticationStateProvider;
             _httpClient = httpClient;
