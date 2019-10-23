@@ -3,36 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29021.104
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientSideBlazor.Server", "src\ClientSideBlazor.Server\ClientSideBlazor.Server.csproj", "{0AFA567E-4A9D-45CA-B735-51080446044C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAuthorization.Server", "src\BlazorAuthorization.Server\BlazorAuthorization.Server.csproj", "{0AFA567E-4A9D-45CA-B735-51080446044C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientSideBlazor.Client", "src\ClientSideBlazor.Client\ClientSideBlazor.Client.csproj", "{CF31551F-E752-44F9-A437-16B0D12DB465}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAuthorization.Client", "src\BlazorAuthorization.Client\BlazorAuthorization.Client.csproj", "{CF31551F-E752-44F9-A437-16B0D12DB465}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAuthorization.Shared", "src\BlazorAuthorization.Shared\BlazorAuthorization.Shared.csproj", "{EFBF063D-EFDC-4273-862F-4027A59B1267}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSideBlazor", "src\ServerSideBlazor\ServerSideBlazor.csproj", "{943F055D-3F9A-4D6D-AD90-81BC1CA524B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAuthorization.Blazor", "src\BlazorAuthorization.Blazor\BlazorAuthorization.Blazor.csproj", "{DC074A0D-628A-463C-8C94-3AD2BC368AF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Dbg_CSB|Any CPU = Dbg_CSB|Any CPU
+		Dbg_SSB|Any CPU = Dbg_SSB|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0AFA567E-4A9D-45CA-B735-51080446044C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AFA567E-4A9D-45CA-B735-51080446044C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AFA567E-4A9D-45CA-B735-51080446044C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AFA567E-4A9D-45CA-B735-51080446044C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF31551F-E752-44F9-A437-16B0D12DB465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF31551F-E752-44F9-A437-16B0D12DB465}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF31551F-E752-44F9-A437-16B0D12DB465}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF31551F-E752-44F9-A437-16B0D12DB465}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Release|Any CPU.Build.0 = Release|Any CPU
-		{943F055D-3F9A-4D6D-AD90-81BC1CA524B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{943F055D-3F9A-4D6D-AD90-81BC1CA524B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{943F055D-3F9A-4D6D-AD90-81BC1CA524B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{943F055D-3F9A-4D6D-AD90-81BC1CA524B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AFA567E-4A9D-45CA-B735-51080446044C}.Dbg_CSB|Any CPU.ActiveCfg = Dbg_CSB|Any CPU
+		{0AFA567E-4A9D-45CA-B735-51080446044C}.Dbg_CSB|Any CPU.Build.0 = Dbg_CSB|Any CPU
+		{0AFA567E-4A9D-45CA-B735-51080446044C}.Dbg_SSB|Any CPU.ActiveCfg = Dbg_SSB|Any CPU
+		{0AFA567E-4A9D-45CA-B735-51080446044C}.Dbg_SSB|Any CPU.Build.0 = Dbg_SSB|Any CPU
+		{CF31551F-E752-44F9-A437-16B0D12DB465}.Dbg_CSB|Any CPU.ActiveCfg = Dbg_CSB|Any CPU
+		{CF31551F-E752-44F9-A437-16B0D12DB465}.Dbg_CSB|Any CPU.Build.0 = Dbg_CSB|Any CPU
+		{CF31551F-E752-44F9-A437-16B0D12DB465}.Dbg_SSB|Any CPU.ActiveCfg = Dbg_SSB|Any CPU
+		{CF31551F-E752-44F9-A437-16B0D12DB465}.Dbg_SSB|Any CPU.Build.0 = Dbg_SSB|Any CPU
+		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Dbg_CSB|Any CPU.ActiveCfg = Dbg_CSB|Any CPU
+		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Dbg_CSB|Any CPU.Build.0 = Dbg_CSB|Any CPU
+		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Dbg_SSB|Any CPU.ActiveCfg = Dbg_SSB|Any CPU
+		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Dbg_SSB|Any CPU.Build.0 = Dbg_SSB|Any CPU
+		{DC074A0D-628A-463C-8C94-3AD2BC368AF0}.Dbg_CSB|Any CPU.ActiveCfg = Dbg_CSB|Any CPU
+		{DC074A0D-628A-463C-8C94-3AD2BC368AF0}.Dbg_CSB|Any CPU.Build.0 = Dbg_CSB|Any CPU
+		{DC074A0D-628A-463C-8C94-3AD2BC368AF0}.Dbg_SSB|Any CPU.ActiveCfg = Dbg_SSB|Any CPU
+		{DC074A0D-628A-463C-8C94-3AD2BC368AF0}.Dbg_SSB|Any CPU.Build.0 = Dbg_SSB|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
