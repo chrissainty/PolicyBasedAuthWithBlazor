@@ -84,6 +84,9 @@ namespace BlazorWebAssembly.Client
 
         private byte[] ParseBase64WithoutPadding(string base64)
         {
+            base64 = base64.Replace('-', '+'); // 62nd char of encoding
+            base64 = base64.Replace('_', '/'); // 63rd char of encoding
+
             switch (base64.Length % 4)
             {
                 case 2: base64 += "=="; break;
