@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29021.104
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAuthorization.Server", "src\BlazorAuthorization.Server\BlazorAuthorization.Server.csproj", "{0AFA567E-4A9D-45CA-B735-51080446044C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAuthorization.Client", "src\BlazorAuthorization.Client\BlazorAuthorization.Client.csproj", "{CF31551F-E752-44F9-A437-16B0D12DB465}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAuthorization.Shared", "src\BlazorAuthorization.Shared\BlazorAuthorization.Shared.csproj", "{EFBF063D-EFDC-4273-862F-4027A59B1267}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAuthorization.Blazor", "src\BlazorAuthorization.Blazor\BlazorAuthorization.Blazor.csproj", "{DC074A0D-628A-463C-8C94-3AD2BC368AF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Dbg_CSB|Any CPU = Dbg_CSB|Any CPU
+		Dbg_SSB|Any CPU = Dbg_SSB|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AFA567E-4A9D-45CA-B735-51080446044C}.Dbg_CSB|Any CPU.ActiveCfg = Dbg_CSB|Any CPU
+		{0AFA567E-4A9D-45CA-B735-51080446044C}.Dbg_CSB|Any CPU.Build.0 = Dbg_CSB|Any CPU
+		{0AFA567E-4A9D-45CA-B735-51080446044C}.Dbg_SSB|Any CPU.ActiveCfg = Dbg_SSB|Any CPU
+		{0AFA567E-4A9D-45CA-B735-51080446044C}.Dbg_SSB|Any CPU.Build.0 = Dbg_SSB|Any CPU
+		{CF31551F-E752-44F9-A437-16B0D12DB465}.Dbg_CSB|Any CPU.ActiveCfg = Dbg_CSB|Any CPU
+		{CF31551F-E752-44F9-A437-16B0D12DB465}.Dbg_CSB|Any CPU.Build.0 = Dbg_CSB|Any CPU
+		{CF31551F-E752-44F9-A437-16B0D12DB465}.Dbg_SSB|Any CPU.ActiveCfg = Dbg_SSB|Any CPU
+		{CF31551F-E752-44F9-A437-16B0D12DB465}.Dbg_SSB|Any CPU.Build.0 = Dbg_SSB|Any CPU
+		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Dbg_CSB|Any CPU.ActiveCfg = Dbg_CSB|Any CPU
+		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Dbg_CSB|Any CPU.Build.0 = Dbg_CSB|Any CPU
+		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Dbg_SSB|Any CPU.ActiveCfg = Dbg_SSB|Any CPU
+		{EFBF063D-EFDC-4273-862F-4027A59B1267}.Dbg_SSB|Any CPU.Build.0 = Dbg_SSB|Any CPU
+		{DC074A0D-628A-463C-8C94-3AD2BC368AF0}.Dbg_CSB|Any CPU.ActiveCfg = Dbg_CSB|Any CPU
+		{DC074A0D-628A-463C-8C94-3AD2BC368AF0}.Dbg_CSB|Any CPU.Build.0 = Dbg_CSB|Any CPU
+		{DC074A0D-628A-463C-8C94-3AD2BC368AF0}.Dbg_SSB|Any CPU.ActiveCfg = Dbg_SSB|Any CPU
+		{DC074A0D-628A-463C-8C94-3AD2BC368AF0}.Dbg_SSB|Any CPU.Build.0 = Dbg_SSB|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F674C702-F70D-472F-AD11-44674E93E9FE}
+	EndGlobalSection
+EndGlobal
